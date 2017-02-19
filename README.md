@@ -1,4 +1,4 @@
-# Create Yo-Yo Component
+# Create an App
 
 Everything you need to create a modern JavaScript application.
 
