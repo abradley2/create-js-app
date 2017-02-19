@@ -1,4 +1,4 @@
-# Create an App
+# Create App
 
 Everything you need to create a modern JavaScript application.
 
