@@ -1,18 +1,32 @@
 {
   "dependencies": {
-    "browserify": "^14.1.0",
-    "budo": "^9.4.7",
     "ecstatic": "^2.1.0",
-    "sheetify": "6.0.1",
-    "tachyons": "^4.6.2",
-    "watchify": "^3.9.0",
-    "yo-yo": "1.x",
-    "yo-yoify": "^3.5.0"
+    "sheetify": "^6.1.1",
+    "tachyons": "^4.8.0",
+    "yo-yo": "1.x"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "budo": "^10.0.4",
+    "envify": "^4.1.0",
+    "es2040": "^1.2.6",
+    "standard": "^10.0.3",
+    "uglifyify": "^4.0.3",
+    "yo-yoify": "^3.7.3"
   },
   "main": "main.js",
   "scripts": {
-    "watch": "budo main.js:bundle.js --dir ./public --live -- -t sheetify/transform",
-    "build": "browserify main.js -t yo-yoify -t sheetify/transform -g uglifyify -o public/bundle.js",
-    "start": "ecstatic ./public --port 8080"
+    "watch": "NODE_ENV=development budo main.js:bundle.js --dir ./public --live",
+    "build": "NODE_ENV=production browserify main.js -g uglifyify -o public/bundle.js",
+    "start": "ecstatic ./public --port 8080",
+    "test": "standard"
+  },
+  "browserify": {
+    "transform": [
+      "es2040",
+      "envify",
+      "yo-yoify",
+      "sheetify/transform"
+    ]
   }
 }

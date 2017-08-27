@@ -9,7 +9,7 @@ You can scale this up to something more complex very easily.
 ### Getting Started
 
 ```
-git clone --depth 1 https://github.com/abradley2/create-app
+git clone --depth 1 https://github.com/abradley2/create-yo-yo-app
 mv create-app my-app-name
 cd my-app-name
 rm -rf .git

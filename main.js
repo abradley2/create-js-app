@@ -1,42 +1,25 @@
 const html = require('yo-yo')
 const css = require('sheetify')
-
-css('tachyons')
+css('./main.css')
 
 const state = {
-  message: 'Start building!',
-  editMessage: function (msg) {
-    state.message = msg
-    update()
-  }
+  message: 'Start building!'
 }
 
-const styles = css`
-  :host > h3 {
-    color: blue;
-  }
-`
+const appNode = document.body.appendChild(document.createElement('div'))
 
-function app () {
-  return html`<div class=${styles + ' pt3 center measure'}>
+;(function update () {
+  html.update(appNode, html`<div class='pt3 center measure'>
     <input
       type='text'
       value=${state.message}
-      oninput=${function (e) {
-        state.editMessage(e.target.value)
-      }}
+      oninput=${editMessage}
     />
     <h3>${state.message}</h3>
-  </div>`
-}
+  </div>`)
 
-const appNode = document.createElement('div')
-
-function update () {
-  html.update(appNode, html`${app()}`)
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.body.appendChild(appNode)
-  update()
-})
+  function editMessage (e) {
+    state.message = e.target.value
+    update()
+  }
+})()
