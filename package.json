@@ -14,7 +14,10 @@
     "uglifyify": "^4.0.3",
     "yo-yoify": "^3.7.3"
   },
+  "author": "Tony Bradley",
+  "name": "create-yo-yo-app",
   "main": "main.js",
+  "license": "MIT",
   "scripts": {
     "watch": "NODE_ENV=development budo main.js:bundle.js --dir ./public --live",
     "build": "NODE_ENV=production browserify main.js -g uglifyify -o public/bundle.js",
