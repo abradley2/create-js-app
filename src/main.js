@@ -3,12 +3,12 @@ const css = require("sheetify")
 css("./main.css")
 
 const state = {
-	message: "Start building!"
+	message: "Start building something!"
 }
 
 const app = {
 	view() {
-		return m("div", [state.message])
+		return m("div.blue", [state.message])
 	}
 }
 
