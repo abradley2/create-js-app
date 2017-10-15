@@ -9,7 +9,7 @@ You can scale this up to something more complex very easily.
 ### Getting Started
 
 ```
-echo "what shall we name this fine app?" && read APP_NAME && \
+printf "\n\nwhat shall we name this fine app?\n\n" && read APP_NAME && \
 git clone --depth 1 https://github.com/abradley2/create-js-app $APP_NAME && \
 cd $APP_NAME && rm -rf ./.git && git init && npm install && npm run start
 
