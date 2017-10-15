@@ -7,28 +7,64 @@
     "tachyons": "^4.8.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
     "browserify": "^14.4.0",
+    "bubleify": "^0.7.0",
     "budo": "^10.0.4",
     "envify": "^4.1.0",
-    "es2040": "^1.2.6",
+    "eslint": "^4.9.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier": "^1.7.4",
     "standard": "^10.0.3",
     "uglifyify": "^4.0.3"
   },
   "author": "Tony Bradley",
-  "name": "create-yo-yo-app",
-  "main": "main.js",
+  "name": "create-js-app",
+  "main": "./src/main.js",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development budo ./src/main.js:bundle.js --dir ./public --live",
-    "build": "NODE_ENV=production browserify ./src/main.js -g uglifyify -o ./public/bundle.js && ecstatic ./public --port 8080",
+    "start":
+      "NODE_ENV=development budo ./src/main.js:bundle.js --dir ./public --live",
+    "build":
+      "NODE_ENV=production browserify ./src/main.js -g uglifyify -o ./public/bundle.js && ecstatic ./public --port 8080",
     "test": "standard",
     "lint": "standard --fix"
   },
   "browserify": {
-    "transform": [
-      "es2040",
-      "envify",
-      "sheetify/transform"
-    ]
+    "transform": [["bubleify", {"jsx": "m"}], "envify", "sheetify/transform"]
+  },
+  "eslintIgnore": ["./node_modules", "./package.json"],
+  "eslintConfig": {
+    "extends": [
+      "standard",
+      "plugin:flowtype/recommended",
+      "plugin:react/recommended",
+      "prettier",
+      "prettier/flowtype",
+      "prettier/react",
+      "prettier/standard"
+    ],
+    "plugins": ["flowtype", "react", "prettier", "standard"],
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "prettier": {
+    "semi": false
   }
 }
