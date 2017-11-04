@@ -1,56 +1,66 @@
 {
-	"dependencies": {
-		"classnames": "^2.2.5",
-		"ecstatic": "^2.1.0",
-		"mithril": "^1.1.3",
-		"sheetify": "^6.1.1",
-		"tachyons": "^4.8.0"
-	},
-	"devDependencies": {
-		"browserify": "^14.4.0",
-		"bubleify": "^0.7.0",
-		"budo": "^10.0.4",
-		"envify": "^4.1.0",
-		"eslint": "^4.9.0",
-		"eslint-config-prettier": "^2.6.0",
-		"eslint-config-xo": "^0.18.2",
-		"eslint-plugin-prettier": "^2.3.1",
-		"prettier": "^1.7.4",
-		"uglifyify": "^4.0.3"
-	},
-	"author": "Tony Bradley",
-	"name": "create-js-app",
-	"main": "./src/main.js",
-	"license": "MIT",
-	"scripts": {
-		"start":
-			"NODE_ENV=development budo ./src/main.js:bundle.js --dir ./public --live",
-		"build":
-			"NODE_ENV=production browserify ./src/main.js -g uglifyify -o ./public/bundle.js && ecstatic ./public --port 8080",
-		"test": "prettier -l --write 'src/**/*.*' && eslint --ext js src/",
-		"lint": "prettier -l --write 'src/**/*.*' && eslint --ext js src/"
-	},
-	"browserify": {
-		"transform": ["bubleify", "envify", "sheetify/transform"]
-	},
-	"eslintIgnore": ["./node_modules", "./package.json"],
-	"eslintConfig": {
-		"extends": ["xo/esnext", "prettier"],
-		"plugins": ["prettier"],
-		"parserOptions": {
-			"sourceType": "module"
-		},
-		"env": {
-			"browser": true,
-			"es6": true,
-			"node": true
-		},
-		"rules": {
-			"prettier/prettier": "error"
-		}
-	},
-	"prettier": {
-		"semi": false,
-		"useTabs": true
-	}
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "ecstatic": "^2.1.0",
+    "mithril": "^1.1.3",
+    "sheetify": "^6.1.1",
+    "tachyons": "^4.8.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "bubleify": "^0.7.0",
+    "budo": "^10.0.4",
+    "envify": "^4.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-xo": "^0.18.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "prettier": "^1.7.4",
+    "uglifyify": "^4.0.3"
+  },
+  "author": "Tony Bradley",
+  "name": "create-js-app",
+  "main": "./src/main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=development budo ./src/main.js:bundle.js --dir ./public --live",
+    "build": "NODE_ENV=production browserify ./src/main.js -g uglifyify -o ./public/bundle.js && ecstatic ./public --port 8080",
+    "test": "prettier -l --write 'src/**/*.*' && eslint --ext js src/",
+    "lint": "prettier -l --write 'src/**/*.*' && eslint --ext js src/"
+  },
+  "browserify": {
+    "transform": [
+      "bubleify",
+      "envify",
+      "sheetify/transform"
+    ]
+  },
+  "eslintIgnore": [
+    "./node_modules",
+    "./package.json"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "xo/esnext",
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": "error"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "useTabs": true
+  }
 }
